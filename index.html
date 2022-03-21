@@ -4,11 +4,11 @@
   function copyElementText() {
     var text = document.getElementById('pi').innerText;
     var elem = document.createElement("textarea");
-    document.body.appendChild(dummy);
-    dummy.value = text;
-    dummy.select();
+    document.body.appendChild(elem);
+    elem.value = text;
+    elem.select();
     document.execCommand("copy");
-    document.body.removeChild(dummy);
+    document.body.removeChild(elem);
 }
   function generate() {
   function bi(n, b) { return new jsbn.BigInteger(n.toString(), b ? b : 10); };
