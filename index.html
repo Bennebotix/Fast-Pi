@@ -1,7 +1,8 @@
-<html><head><script src='https://rawgit.com/andyperlitch/jsbn/v1.1.0/index.js'></script><script src='https://cdn.tailwindcss.com'></script></head>
-<body style="width: 100%;" class="grid grid-cols-3"><h1 class="text-3xl">Fast <span class="text-4xl">π</span></h1><button onclick="generate()">Generate!</button><button onclick="copyElementText()">Copy!</button><div class="col-span-3 place-content-center flex"><tt id="pi" class="m-7 w-screen max-w-max"></tt></div>
+<html><head><script src='https://rawgit.com/andyperlitch/jsbn/v1.1.0/index.js'></script><script src='https://cdn.tailwindcss.com'></script><title>Fast Pi</title></head>
+<body style="width: 100%;" class="grid grid-cols-3"><h1 class="text-3xl">Fast <span class="text-4xl">π</span></h1><button onclick="generate()">Generate!</button><button onclick="copyElementText()" id="copy">Copy!</button><div class="col-span-3 place-content-center flex"><tt id="pi" class="break-words m-7 w-screen max-w-max"></tt></div>
 <script async defer>
   function copyElementText() {
+    var button = document.getElementById('copy')
     var text = document.getElementById('pi').innerText;
     var elem = document.createElement("textarea");
     document.body.appendChild(elem);
@@ -9,6 +10,10 @@
     elem.select();
     document.execCommand("copy");
     document.body.removeChild(elem);
+    button.innerHTML = "Copied!"
+    setTimeout(function(){
+      button.innerHTML = "Copy!"
+    }, 100)
 }
   function generate() {
   function bi(n, b) { return new jsbn.BigInteger(n.toString(), b ? b : 10); };
