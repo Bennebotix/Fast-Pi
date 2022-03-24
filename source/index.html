@@ -20,7 +20,7 @@
                   r  = nr;
                   if (digit%8==0) {
                       if (digit%64==0) {
-                       p.appendChild(document.createTextNode('\n> '));
+                       p.appendChild(document.createElement('<br>');document.createTextNode('> '));
                       }
                       w('');
                       return setTimeout(function() { continueCalcPi(q, r, t, k, n, l); }, 50);
