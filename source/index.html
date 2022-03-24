@@ -1,6 +1,21 @@
-<h1 id='pi'></h1>
-<script>
-function generate() {
+<script src='https://rawgit.com/andyperlitch/jsbn/v1.1.0/index.js'></script><title>Fast Pi Source</title></head>
+<tt id="pi" class="break-all"></tt>
+<script async defer>
+  function copyElementText() {
+    var button = document.getElementById('copy')
+    var text = document.getElementById('pi').innerText;
+    var elem = document.createElement("textarea");
+    document.body.appendChild(elem);
+    elem.value = text;
+    elem.select();
+    document.execCommand("copy");
+    document.body.removeChild(elem);
+    button.innerHTML = "Copied!"
+    setTimeout(function(){
+      button.innerHTML = "Copy!"
+    }, 1000)
+}
+  function generate() {
   function bi(n, b) { return new jsbn.BigInteger(n.toString(), b ? b : 10); };
   var one=bi(1), two=bi(2), three=bi(3), four=bi(4), seven=bi(7), ten=bi(10);
   function calcPi() {
